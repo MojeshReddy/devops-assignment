@@ -1,0 +1,3 @@
+# DevOps Assignment
+
+This is an end-to-end DevOps project featuring a Python REST API and a Next.js frontend...

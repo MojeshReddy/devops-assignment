@@ -1,0 +1,27 @@
+name: CI/CD
+on:
+  push:
+    branches: [develop, main]
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Run backend tests
+        run: |
+          cd backend
+          pip install -r requirements.txt
+          pytest
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: Run frontend tests
+        run: |
+          cd frontend
+          npm install
+          npm test
